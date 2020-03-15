@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/experLOGO.png-7f9d1740e688f44a6e9af6c4abf351b9.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://imagenes/experLOGO.png"
-dest_files=[ "res://.import/experLOGO.png-7f9d1740e688f44a6e9af6c4abf351b9.stex" ]
-
+source_file="res://imagenes/el doc.png"
 [params]
 
 compress/mode=0

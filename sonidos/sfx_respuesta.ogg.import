@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_respuesta.ogg-0a5ea4d90057d7e1621e31b30bb25c00.oggstr"
+
+[deps]
+
+source_file="res://sonidos/sfx_respuesta.ogg"
+dest_files=[ "res://.import/sfx_respuesta.ogg-0a5ea4d90057d7e1621e31b30bb25c00.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
