@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Imagenes/90497-OIMVX4-840.jpg" type="Texture" id=1]
+[ext_resource path="res://Desert-Btn.png" type="Texture" id=2]
+[ext_resource path="res://fuentes/FredokaOne-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Btn-Go.png" type="Texture" id=4]
+[ext_resource path="res://Left.png" type="Texture" id=5]
+[ext_resource path="res://Right.png" type="Texture" id=6]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+func _ready():
+	pass
+
+func _on_BtnSiguiente_pressed():
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene(\"res://escenas/LvlJungle.tscn\");
+
+
+func _on_BtnAnterior_pressed():
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene(\"res://escenas/LvlMountain.tscn\");
+
+
+func _on_BtnGo_pressed():
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene(\"res://escenas/LvlDesertMinigame.tscn\");
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="NodoRaiz" type="Node"]
+script = SubResource( 1 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+region_rect = Rect2( 100, 630, 460, 910 )
+patch_margin_left = 1206
+patch_margin_bottom = 63
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -465.0
+margin_top = -566.0
+margin_right = 465.0
+margin_bottom = 424.0
+rect_min_size = Vector2( 930, 990 )
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+margin_right = 930.0
+margin_bottom = 990.0
+rect_min_size = Vector2( 400, 990 )
+texture_normal = ExtResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -328.0
+custom_fonts/font = SubResource( 2 )
+text = "¿Sabes mucho sobre animales?"
+align = 1
+autowrap = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -185.5
+margin_top = 330.0
+margin_right = 185.5
+margin_bottom = 530.0
+rect_min_size = Vector2( 371, 200 )
+
+[node name="BtnGo" type="TextureButton" parent="VBoxContainer2"]
+margin_right = 371.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -261.0
+margin_right = 200.0
+margin_bottom = -61.0
+
+[node name="BtnAnterior" type="TextureButton" parent="VBoxContainer3"]
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 100, 200 )
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -261.0
+margin_bottom = -61.0
+
+[node name="BtnSiguiente" type="TextureButton" parent="VBoxContainer4"]
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 100, 200 )
+texture_normal = ExtResource( 6 )
+expand = true
+[connection signal="pressed" from="VBoxContainer2/BtnGo" to="." method="_on_BtnGo_pressed"]
+[connection signal="pressed" from="VBoxContainer3/BtnAnterior" to="." method="_on_BtnAnterior_pressed"]
+[connection signal="pressed" from="VBoxContainer4/BtnSiguiente" to="." method="_on_BtnSiguiente_pressed"]
