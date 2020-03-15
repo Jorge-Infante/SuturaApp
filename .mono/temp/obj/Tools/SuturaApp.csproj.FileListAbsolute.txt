@@ -1,0 +1,6 @@
+C:\Users\royber manjarrez\Documents\SuturaApp\.mono\temp\bin\Tools\SuturaApp.dll
+C:\Users\royber manjarrez\Documents\SuturaApp\.mono\temp\bin\Tools\SuturaApp.pdb
+C:\Users\royber manjarrez\Documents\SuturaApp\.mono\temp\obj\Tools\SuturaApp.csprojAssemblyReference.cache
+C:\Users\royber manjarrez\Documents\SuturaApp\.mono\temp\obj\Tools\SuturaApp.csproj.CoreCompileInputs.cache
+C:\Users\royber manjarrez\Documents\SuturaApp\.mono\temp\obj\Tools\SuturaApp.dll
+C:\Users\royber manjarrez\Documents\SuturaApp\.mono\temp\obj\Tools\SuturaApp.pdb
