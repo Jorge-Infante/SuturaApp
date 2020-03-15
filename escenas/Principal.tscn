@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://imagenes/16619.jpg" type="Texture" id=1]
 [ext_resource path="res://imagenes/document-clipart-transparent-18.png" type="Texture" id=2]
 [ext_resource path="res://fuentes/FredokaOne-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://imagenes/game-play-button-png.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 85
 font_data = ExtResource( 3 )
 
 [node name="Node" type="Node"]
-editor/display_folded = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -27,9 +27,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -127.5
-margin_top = -377.0
-margin_right = 127.5
+margin_left = -354.484
+margin_top = -588.682
+margin_right = -99.484
+margin_bottom = -211.682
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
@@ -43,3 +44,23 @@ text = "SuturApp"
 align = 1
 valign = 1
 autowrap = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.182
+margin_top = 118.469
+margin_right = 384.818
+margin_bottom = 411.469
+rect_pivot_offset = Vector2( 259.832, 129.36 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
