@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BtnSalir.png-3a189c42ecf6ce7e63761051b6e2f57a.stex"
+path="res://.import/blue-button-1428506_960_720.webp-9753b3efc27bf7d2307ddc5b70e6ea6a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BtnSalir.png"
-dest_files=[ "res://.import/BtnSalir.png-3a189c42ecf6ce7e63761051b6e2f57a.stex" ]
+source_file="res://imagenes/blue-button-1428506_960_720.webp"
+dest_files=[ "res://.import/blue-button-1428506_960_720.webp-9753b3efc27bf7d2307ddc5b70e6ea6a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=true
 flags/anisotropic=true
 flags/srgb=2

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BtnSalir.png-3a189c42ecf6ce7e63761051b6e2f57a.stex"
+path="res://.import/16333.jpg-25eac20c3ea4aeaf5e7133cf188f94a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BtnSalir.png"
-dest_files=[ "res://.import/BtnSalir.png-3a189c42ecf6ce7e63761051b6e2f57a.stex" ]
+source_file="res://imagenes/16333.jpg"
+dest_files=[ "res://.import/16333.jpg-25eac20c3ea4aeaf5e7133cf188f94a4.stex" ]
 
 [params]
 
