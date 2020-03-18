@@ -237,8 +237,8 @@ func _on_Salir_pressed():
 "
 
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.995536 )
-colors = PoolColorArray( 0, 0.027451, 0.141176, 1, 0, 0.027451, 0.141176, 1 )
+offsets = PoolRealArray( 0.0118343, 0.995536 )
+colors = PoolColorArray( 0.31543, 0, 0.53125, 1, 0.186218, 0.321668, 0.882813, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
@@ -354,7 +354,6 @@ align = 1
 valign = 1
 
 [node name="Panel" type="Panel" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 margin_left = 4.0
 margin_top = 193.0
