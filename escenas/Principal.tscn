@@ -1,8 +1,48 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=52 format=2]
 
-[ext_resource path="res://imagenes/physician-visit-cartoon-composition_1284-25919.jpg" type="Texture" id=1]
+[ext_resource path="res://imagenes/2378642.jpg" type="Texture" id=1]
 [ext_resource path="res://fuentes/FredokaOne-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://imagenes/game-play-button-png.png" type="Texture" id=3]
+[ext_resource path="res://sonidos/loop_music.ogg" type="AudioStream" id=4]
+[ext_resource path="res://imagenes/blue-button-1428506_960_720.webp" type="Texture" id=5]
+[ext_resource path="res://imagenes/info/info-sutura.pdf.png" type="Texture" id=6]
+[ext_resource path="res://imagenes/info/imagen 2.png" type="Texture" id=7]
+[ext_resource path="res://imagenes/info/imagen 3.png" type="Texture" id=8]
+[ext_resource path="res://imagenes/info/imagen 4.png" type="Texture" id=9]
+[ext_resource path="res://imagenes/info/imagen 5.png" type="Texture" id=10]
+[ext_resource path="res://imagenes/info/imagen 6.png" type="Texture" id=11]
+[ext_resource path="res://imagenes/info/imagen 7.png" type="Texture" id=12]
+[ext_resource path="res://imagenes/info/imagen 8.png" type="Texture" id=13]
+[ext_resource path="res://imagenes/info/imagen 9.png" type="Texture" id=14]
+[ext_resource path="res://imagenes/info/imagen 10.png" type="Texture" id=15]
+[ext_resource path="res://imagenes/info/imagen 11.png" type="Texture" id=16]
+[ext_resource path="res://imagenes/info/imagen 12.png" type="Texture" id=17]
+[ext_resource path="res://imagenes/info/imagen 13.png" type="Texture" id=18]
+[ext_resource path="res://imagenes/info/imagen 14.png" type="Texture" id=19]
+[ext_resource path="res://imagenes/info/imagen 15.png" type="Texture" id=20]
+[ext_resource path="res://imagenes/info/imagen 16.png" type="Texture" id=21]
+[ext_resource path="res://imagenes/info/imagen 17.png" type="Texture" id=22]
+[ext_resource path="res://imagenes/info/imagen 18.png" type="Texture" id=23]
+[ext_resource path="res://imagenes/info/imagen 19.png" type="Texture" id=24]
+[ext_resource path="res://imagenes/info/imagen 20.png" type="Texture" id=25]
+[ext_resource path="res://imagenes/info/imagen 21.png" type="Texture" id=26]
+[ext_resource path="res://imagenes/info/imagen 22.png" type="Texture" id=27]
+[ext_resource path="res://imagenes/info/imagen 23.png" type="Texture" id=28]
+[ext_resource path="res://imagenes/info/imagen 24.png" type="Texture" id=29]
+[ext_resource path="res://imagenes/info/imagen 25.png" type="Texture" id=30]
+[ext_resource path="res://imagenes/info/imagen 26.png" type="Texture" id=31]
+[ext_resource path="res://imagenes/info/imagen 27.png" type="Texture" id=32]
+[ext_resource path="res://imagenes/info/imagen 28.png" type="Texture" id=33]
+[ext_resource path="res://imagenes/info/imagen 29.png" type="Texture" id=34]
+[ext_resource path="res://imagenes/info/imagen 30.png" type="Texture" id=35]
+[ext_resource path="res://imagenes/info/imagen 31.png" type="Texture" id=36]
+[ext_resource path="res://imagenes/info/imagen 32.png" type="Texture" id=37]
+[ext_resource path="res://imagenes/info/imagen 33.png" type="Texture" id=38]
+[ext_resource path="res://imagenes/info/imagen 34.png" type="Texture" id=39]
+[ext_resource path="res://imagenes/info/imagen 35.png" type="Texture" id=40]
+[ext_resource path="res://imagenes/info/image 36.png" type="Texture" id=41]
+[ext_resource path="res://imagenes/info/imagen 37.png" type="Texture" id=42]
+[ext_resource path="res://Question-bottom.png" type="Texture" id=43]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -22,35 +62,77 @@ func _ready():
 
 func _on_TextureButton_pressed():
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene(\"res://escenas/MinigameUno.tscn\");"
+	get_tree().change_scene(\"res://escenas/MinigameUno.tscn\");
+
+func _on_TextureButton2_pressed():
+	$info.popup()
+
+
+func _on_cerrarInfo_pressed():
+	$info.hide()
+"
 
 [sub_resource type="DynamicFont" id=2]
-size = 85
+size = 90
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 0.313726, 0, 0.529412, 1, 0.184314, 0.321569, 0.882353, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 35
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 45
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 2 )
 
 [node name="Node" type="Node"]
 script = SubResource( 1 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -322.495
-margin_top = -5.06873
-margin_right = 151.505
-margin_bottom = 26.9313
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -622.5
+margin_top = -640.0
+margin_right = 622.5
+margin_bottom = 640.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 626, 637 )
+region_rect = Rect2( 88, 46, 1805, 1774 )
 patch_margin_left = 35
 patch_margin_right = 44
 
 [node name="Titulo" type="Label" parent="."]
-anchor_right = 1.0
-margin_bottom = 107.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -360.0
+margin_right = 360.0
+margin_bottom = 526.0
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.937255, 0.937255, 0.937255, 1 )
-custom_colors/font_color_shadow = Color( 0.709804, 0.176471, 0.678431, 1 )
+custom_colors/font_color = Color( 0.0823529, 0.65098, 0.933333, 1 )
+custom_colors/font_color_shadow = Color( 0.298039, 0.988235, 0.760784, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/line_spacing = 1
 custom_constants/shadow_offset_y = -4
@@ -78,4 +160,680 @@ expand = true
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 1.63
+autoplay = true
+mix_target = 2
+
+[node name="Popup" type="Popup" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -341.5
+margin_top = -504.0
+margin_right = 341.5
+margin_bottom = 504.0
+
+[node name="FileDialog" type="FileDialog" parent="Popup"]
+margin_right = 274.0
+margin_bottom = 130.0
+window_title = "Abrir un archivo"
+resizable = true
+mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -166.0
+margin_top = -139.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TextureButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -14.0
+custom_fonts/font = SubResource( 3 )
+text = "i"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="info" type="Popup" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+popup_exclusive = true
+
+[node name="TextureRect" type="TextureRect" parent="info"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 5 )
+expand = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="info"]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -346.0
+margin_top = -518.0
+margin_right = 346.0
+margin_bottom = 518.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="info/ScrollContainer"]
+margin_right = 709.0
+margin_bottom = 21055.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_right = 709.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 6 )
+text = "*Definición:    La sutura es una hebra de material estéril destinado a favorecer la cicatrización de una herida mediante la aproximación de sus bordes, así como la ligadura de los vasos sanguíneos. "
+autowrap = true
+
+[node name="Label2" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 101.0
+margin_right = 709.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 6 )
+text = "*Tipos de suturas:    hilos, grapas, suturas y adhesivos tisulares. El empleo de un determinado material de sutura o de un tipo de aguja puede determinar diferencias en el resultado quirúrgico. Su elección debe estar fundamentada en criterios científicos y matizados por la buena práctica. "
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 230.0
+margin_right = 709.0
+margin_bottom = 750.0
+texture = ExtResource( 6 )
+stretch_mode = 6
+
+[node name="Label3" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 770.0
+margin_right = 709.0
+margin_bottom = 1523.0
+custom_fonts/font = SubResource( 6 )
+text = "*Funciones:    Importante papel hemostático, proteger la herida de agresiones externas, aproximar los bordes de la herida haciendo la reepitelización más sencilla, mejorar el aspecto estético de la cicatriz 
+
+*Elección del material de sutura:    El tejido a suturar, el periodo de tiempo durante el cual la sutura debe responsabilizarse de mantener unidos los bordes de la herida, el grado de fijación o movilidad deseado, el riesgo de infección de la herida, la reacción producida en los tejidos, el calibre mínimo que debe tener el hilo para darle una resistencia adecuada, el calibre mínimo necesario para fijar los bordes de la herida sin desgarrar los tejidos; se prefieren las agujas que ya vienen unidas al hilo por la industria (atraumáticas) el tamaño de la aguja estará relacionado con el tejido a suturar.
+
+*Tamaño del material de sutura:    El diámetro de una hebra de sutura determina su grosor, el cual se designa con números, a mayor número mayor grosor, el material de sutura más grande disponible es el nº 5; Los tamaños van disminuyendo hasta llegar al 0. Los múltiplos de ceroindican un tamaño aún más pequeño. El diámetro más pequeño disponible es el 11-0. Las suturas más finas se usan en microcirugía, y las más gruesas para aproximar tejido óseo. El grosor de las suturas de acero inoxidable tiene un sistema numérico diferente. Los números comienzan con la medida 18 (la más gruesa) y termina con el 38/40 (el más pequeño). A medida que las cifras crecen el tamaño aumenta; En cuanto a la longitud del material de sutura, está estandarizada, Las hebras están precortadas a diferentes longitudes (como 45 cm o 60 cm) o disponibles en longitud completa."
+autowrap = true
+
+[node name="TextureRect2" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 1543.0
+margin_right = 709.0
+margin_bottom = 1771.0
+texture = ExtResource( 7 )
+stretch_mode = 6
+
+[node name="Label4" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 1791.0
+margin_right = 709.0
+margin_bottom = 1816.0
+custom_fonts/font = SubResource( 6 )
+text = "*Empaques de suturas:"
+autowrap = true
+
+[node name="TextureRect3" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 1836.0
+margin_right = 709.0
+margin_bottom = 2161.0
+texture = ExtResource( 8 )
+stretch_mode = 6
+
+[node name="Label5" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 2181.0
+margin_right = 709.0
+margin_bottom = 2822.0
+custom_fonts/font = SubResource( 6 )
+text = "Todas las suturas están envueltas en dos sobres separados (celulosa y polipropileno) el sobre interno está estéril tanto por dentro como por fuera, una cara del sobre externo es trasparente lo que permitir la inspección de los datos impresos en el sobre interno, los datos impresos en el sobre interno deben incluir: materia prima, tipo, calibre y longitud de la sutura, el tipo y tamaño de la aguja, la fecha de fabricación y la fecha de vencimiento.
+
+*Clasificación de las suturas:    Las suturas se pueden clasificar según su origen, Según su estructura y Según su permanenciaen el organismo.
+
+Suturas según su origen:
+*Naturales:
+- Origen animal:  intestino o tendones de bovino y ovino, gusano de seda
+- Origen vegetal:  fibra de linácea, algodón.
+- Origen mineral:  acero inoxidable.
+
+*Sintéticas:    Poliamidas, poliésteres, polidioxanona, ácido poliglicólico,poliglactín 910, polipropileno, polietileno.
+
+* Suturas según su estructura:
+
+- Monofilamento:  poseen una estructura física unitaria. "
+autowrap = true
+
+[node name="TextureRect4" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 2842.0
+margin_right = 709.0
+margin_bottom = 3169.0
+texture = ExtResource( 9 )
+stretch_mode = 6
+
+[node name="Label6" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 3189.0
+margin_right = 709.0
+margin_bottom = 3438.0
+custom_fonts/font = SubResource( 6 )
+text = "*Ventajas:    menos resistencia a su paso por los tejidos, menos impurezas en su superficie que permitan el asentamiento de gérmenes, mínima cicatriz, anudado más fácil. De elección en suturas vasculares.
+
+*Desventajas:    mayor dificultad de manejo, mayor capacidad de sección de los tejidos a su paso inicial, aunque carecen del efecto sierra de las suturas multifilamento, la torsión ola presión
+
+- Multifilamento:"
+autowrap = true
+
+[node name="TextureRect5" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 3458.0
+margin_right = 709.0
+margin_bottom = 3833.0
+texture = ExtResource( 10 )
+stretch_mode = 6
+
+[node name="Label7" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 3853.0
+margin_right = 709.0
+margin_bottom = 4522.0
+custom_fonts/font = SubResource( 6 )
+text = "Formadas por monofilamentos a los que se somete a cierto grado de torsión o de trenzado, lo cual les confiere mayor resistencia, flexibilidad y manejabilidad. En general, aumentan la capilaridad y la posibilidad de invasión del trenzado por el tejido (infección), causando dificultades en la retirada del hilo, además de poder ejercer el efecto “sierra”. Dejan mayor cicatriz y presentan más resistencia al paso a través de los tejidos, recubrimiento/ impregnado.
+
+*Suturas según su permanencia en el organismo:
+
+- Absorbibles:
+Desaparecen gradualmente del organismo digeridas por enzimas (las naturales) o por procedimientos de hidrólisis (las sintéticas). El hidrolizado de las suturas sintéticas es menos agresivo para el organismo que la puesta en marcha del sistema enzimático, que además de atacar a la sutura, causará una serie de lesiones en los tejidos circundantes. Se emplean en la dermis o tejido subcutáneo (sutura subcutánea o hipodérmica).
+
+- No absorbibles:
+Debido a su estructura, el organismo no las puede descomponer, quedando permanentes en él (encapsuladas). Deben ser retiradas. Se utilizan para el cierre superficial de la herida (sutura superficial) y para la implantación de prótesis temporales."
+autowrap = true
+
+[node name="Label8" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 4542.0
+margin_right = 709.0
+margin_bottom = 5099.0
+custom_fonts/font = SubResource( 6 )
+text = "SUTURAS
+
+- Catgut:
+ Se obtiene a partir de los intestinos de vaca y oveja, hecho de colágeno. Absorbible. Contraindicado en heridas contaminadas o pacientes debilitados, ya que puede llevar a la dehiscencia de la herida (los bordes se separan y la herida se abre). Ha sido reemplazado casi totalmente por las suturas sintéticas, debido a que producen menos reacción inflamatoria, son fáciles de manejar, tienen mayor resistencia y se utilizan en presencia de infección.
+Disponible en dos presentaciones: simple o crómico (cromado). El catgut crómico (tratado con sales crómicas) tiene mayor tiempo de reabsorción que el simple. En presencia de infección, ambos tipos son reabsorbidos rápidamente.
+
+CATGUT CROMADO:
+
+USOS: periné, mucosa urinaria, mucosa digestiva, peritoneo, aponeurosis, inserción de tendón a hueso, musculo, pene, escroto, útero, trompas de Falopio, hígado."
+autowrap = true
+
+[node name="TextureRect6" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 5119.0
+margin_right = 709.0
+margin_bottom = 5665.0
+rect_clip_content = true
+texture = ExtResource( 11 )
+stretch_mode = 6
+
+[node name="TextureRect7" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 5685.0
+margin_right = 709.0
+margin_bottom = 6065.0
+rect_clip_content = true
+texture = ExtResource( 12 )
+stretch_mode = 6
+
+[node name="TextureRect8" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 6085.0
+margin_right = 709.0
+margin_bottom = 6213.0
+rect_clip_content = true
+texture = ExtResource( 13 )
+stretch_mode = 6
+
+[node name="Label9" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 6233.0
+margin_right = 709.0
+margin_bottom = 6482.0
+custom_fonts/font = SubResource( 6 )
+text = "- Poliglactin 910:    Copolímero de ácido láctico y glicólico. Mantiene su fuerza tensil un 60% 14 días después de ser implantado. La absorción se completa entre los 60 y 90 días por hidrólisis lenta. Indicado en suturas dérmicas, tejido celular subcutáneo, suturas profundas y ligaduras de pequeños vasos.
+
+VICRYL:
+USOS:    colón, vías urinarias, inserción de tendón a hueso, catarata, músculos oculares, tejido celular subcutáneo."
+autowrap = true
+
+[node name="TextureRect9" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 6502.0
+margin_right = 709.0
+margin_bottom = 6874.0
+rect_clip_content = true
+texture = ExtResource( 14 )
+stretch_mode = 6
+
+[node name="TextureRect10" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 6894.0
+margin_right = 709.0
+margin_bottom = 7180.0
+rect_clip_content = true
+texture = ExtResource( 15 )
+stretch_mode = 6
+
+[node name="TextureRect11" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 7200.0
+margin_right = 709.0
+margin_bottom = 7494.0
+rect_clip_content = true
+texture = ExtResource( 16 )
+stretch_mode = 6
+
+[node name="TextureRect12" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 7514.0
+margin_right = 709.0
+margin_bottom = 7790.0
+rect_clip_content = true
+texture = ExtResource( 17 )
+stretch_mode = 6
+
+[node name="Label10" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 7810.0
+margin_right = 709.0
+margin_bottom = 8003.0
+custom_fonts/font = SubResource( 6 )
+text = "- Polidioxanona:    Preparado a partir de poliésteres. En monofilamento, absorbible. Absorción mínima hasta los 90 días, pero termina antes de seis meses. Se puede emplear en presencia de infección.
+
+PDS-II:
+USOS: aproximación y/o ligaduras de tejidos , útero, vejiga, vagina, estomago, intestinos, tejido vascular pediátrico"
+autowrap = true
+
+[node name="TextureRect13" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 8023.0
+margin_right = 709.0
+margin_bottom = 8248.0
+rect_clip_content = true
+texture = ExtResource( 18 )
+stretch_mode = 6
+
+[node name="TextureRect14" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 8268.0
+margin_right = 709.0
+margin_bottom = 8567.0
+rect_clip_content = true
+texture = ExtResource( 19 )
+stretch_mode = 6
+
+[node name="Label11" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 8587.0
+margin_right = 709.0
+margin_bottom = 8864.0
+custom_fonts/font = SubResource( 6 )
+text = "- Poliéster:    Es el segundo material más resistente de todos los materiales de sutura. Existen absorbibles y no absorbibles. se utiliza en las áreas del cuerpo donde la cicatrización es lenta y donde es extremadamente importante la resistencia a largo plazo y la integridad de la sutura. Se utiliza frecuentemente durante la implantación de válvulas cardíacas y durante los procedimientos vasculares para efectuar la anastomosis de vasos sanguíneos.
+
+MERSILENE:
+USOS:    Anastomosis de vasos, tendones, válvulas cardiacas."
+autowrap = true
+
+[node name="TextureRect15" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 8884.0
+margin_right = 709.0
+margin_bottom = 9149.0
+rect_clip_content = true
+texture = ExtResource( 20 )
+stretch_mode = 6
+
+[node name="Label12" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 9169.0
+margin_right = 709.0
+margin_bottom = 9194.0
+custom_fonts/font = SubResource( 6 )
+text = "ETHIBOND: "
+autowrap = true
+
+[node name="TextureRect16" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 9214.0
+margin_right = 709.0
+margin_bottom = 9446.0
+rect_clip_content = true
+texture = ExtResource( 21 )
+stretch_mode = 6
+
+[node name="Label13" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 9466.0
+margin_right = 709.0
+margin_bottom = 9715.0
+custom_fonts/font = SubResource( 6 )
+text = "- Seda:    Se fabrica a partir de las hebras producidas por el gusano de seda desgomada y luego se tiñe de negro. Fácil de manejar y resistente. Provoca reacción inflamatoria. Aunque no es absorbible, a los 2 años puede desaparecer casi por completo. Disponible como multifilamento.
+
+SEDA NEGRA:
+USOS: Piel, anastomosis vasculares, arteriotomias, ligaduras, cerebro, oftalmología, aparato digestivo, fijar catéter venoso central, fijar tubo a tórax, fijar drenes."
+autowrap = true
+
+[node name="TextureRect17" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 9735.0
+margin_right = 709.0
+margin_bottom = 10130.0
+rect_clip_content = true
+texture = ExtResource( 22 )
+stretch_mode = 6
+
+[node name="TextureRect18" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 10150.0
+margin_right = 709.0
+margin_bottom = 10473.0
+rect_clip_content = true
+texture = ExtResource( 23 )
+stretch_mode = 6
+
+[node name="Label14" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 10493.0
+margin_right = 709.0
+margin_bottom = 10826.0
+custom_fonts/font = SubResource( 6 )
+text = "- Acero quirúrgico:    Es el material de sutura más inerte y resistente que existe. No absorbible. Se fabrica en forma de monofilamento y multifilamento. Se retuerce fácilmente y tiene efecto sierra en los tejidos. Debido a su elasticidad, se contamina con facilidad en el campoquirúrgico. Los extremos afilados pueden pinchar fácilmente un guante y causar lesiones y contaminación a la persona que lo está manejando. Se utiliza para aproximar fragmentos óseos, en reparación de tendones y en cirugía abdominal cuando se requiere gran resistencia o en presencia de infección.
+
+ACERO QUIRURGICO
+USOS: Fractura facial, tendones, tórax."
+autowrap = true
+
+[node name="TextureRect19" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 10846.0
+margin_right = 709.0
+margin_bottom = 11112.0
+rect_clip_content = true
+texture = ExtResource( 24 )
+stretch_mode = 6
+
+[node name="Label15" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 11132.0
+margin_right = 709.0
+margin_bottom = 11381.0
+custom_fonts/font = SubResource( 6 )
+text = "- poliamida:    Se fabrica a partir del carbón. No absorbible. Disponible como monofilamento y como multifilamento. Muy inerte causa escasa o nula reacción inflamatoria. Elevada resistencia a la tensión. Resiste la capilaridad (ascenso de los líquidos a lo largo de la sutura). El monofilamento es muy suave y se utiliza en cirugía oftálmica y vascular.
+
+NYLON:
+USOS: Piel, aponeurosis, sujeción pared abdominal, ligamento capsular, sutura tendinosa."
+autowrap = true
+
+[node name="TextureRect20" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 11401.0
+margin_right = 709.0
+margin_bottom = 11536.0
+rect_clip_content = true
+texture = ExtResource( 25 )
+stretch_mode = 6
+
+[node name="TextureRect21" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 11556.0
+margin_right = 709.0
+margin_bottom = 12064.0
+rect_clip_content = true
+texture = ExtResource( 26 )
+stretch_mode = 6
+
+[node name="TextureRect22" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 12084.0
+margin_right = 709.0
+margin_bottom = 12446.0
+rect_clip_content = true
+texture = ExtResource( 27 )
+stretch_mode = 6
+
+[node name="Label16" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 12466.0
+margin_right = 709.0
+margin_bottom = 12687.0
+custom_fonts/font = SubResource( 6 )
+text = "- Polipropileno:    Polímero de hidrocarburo lineal, Monofilamento. Disponible en colores azul y blanco. Tiene una alta resistencia a la tensión y muy flexible. Se utiliza comúnmente en el cierre de piel, en microcirugía y cirugía cardiovascular.
+
+PROLENE:
+USOS: Reparación de fascia, fijación malla de refuerzo en hernias,
+eventraciones, coronarias, tendones, sutura intradérmica. "
+autowrap = true
+
+[node name="TextureRect23" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 12707.0
+margin_right = 709.0
+margin_bottom = 13025.0
+rect_clip_content = true
+texture = ExtResource( 28 )
+stretch_mode = 6
+
+[node name="TextureRect24" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 13045.0
+margin_right = 709.0
+margin_bottom = 13434.0
+rect_clip_content = true
+texture = ExtResource( 29 )
+stretch_mode = 6
+
+[node name="TextureRect25" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 13454.0
+margin_right = 709.0
+margin_bottom = 13908.0
+rect_clip_content = true
+texture = ExtResource( 30 )
+stretch_mode = 6
+
+[node name="Label17" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 13928.0
+margin_right = 709.0
+margin_bottom = 14373.0
+custom_fonts/font = SubResource( 6 )
+text = "SUTURAS PLUS:
+Las suturas antibacteriales proporciona múltiples beneficios asociados con la dehiscencia y la infección en cierre de heridas, impiden el desarrollo de infecciones a la vez que acortan los procesos de tratamientos.
+
+Estas suturas tienen un efecto antibacteriano con un contenido máximo de 60mg/m de diacetato de clorhexidina (CHA). Un agente antibacteriano deamplioespectro, estas suturas ofrecen protección contra la colonización bacteriana, así mismo crea una zona de inhibición contra patógenos que causan infecciones nosocomiales. Y las podemos encontrar en la presentación de Vicryl, PDS II y Monocryl.
+
+VICRYL PLUS:
+Usos: aproximación de tejidos blandos, ligaduras, intestino delgado, cierre general, cirugía ortopédica. "
+autowrap = true
+
+[node name="TextureRect26" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 14393.0
+margin_right = 709.0
+margin_bottom = 14863.0
+rect_clip_content = true
+texture = ExtResource( 31 )
+stretch_mode = 6
+
+[node name="TextureRect27" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 14883.0
+margin_right = 709.0
+margin_bottom = 15147.0
+rect_clip_content = true
+texture = ExtResource( 32 )
+stretch_mode = 6
+
+[node name="Label18" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 15167.0
+margin_right = 709.0
+margin_bottom = 15276.0
+custom_fonts/font = SubResource( 6 )
+text = "PDS PLUS:
+Usos:    aproximación de tejidos, cierre de pared abdominal, anastomosis de vasos sanguíneos, procedimientos pediátricos, procedimientos vasculares, procedimientos oftalmológicos."
+autowrap = true
+
+[node name="TextureRect28" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 15296.0
+margin_right = 709.0
+margin_bottom = 15833.0
+rect_clip_content = true
+texture = ExtResource( 33 )
+stretch_mode = 6
+
+[node name="TextureRect29" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 15853.0
+margin_right = 709.0
+margin_bottom = 15969.0
+rect_clip_content = true
+texture = ExtResource( 34 )
+stretch_mode = 6
+
+[node name="Label19" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 15989.0
+margin_right = 709.0
+margin_bottom = 16070.0
+custom_fonts/font = SubResource( 6 )
+text = "MONOCRYL PLUS:
+Usos: aproximación de tejidos blandos, piel, útero, peritoneo, ligaduras, vagina, intestino delgado."
+autowrap = true
+
+[node name="TextureRect30" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 16090.0
+margin_right = 709.0
+margin_bottom = 16520.0
+rect_clip_content = true
+texture = ExtResource( 35 )
+stretch_mode = 6
+
+[node name="TextureRect31" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 16540.0
+margin_right = 709.0
+margin_bottom = 16646.0
+rect_clip_content = true
+texture = ExtResource( 36 )
+stretch_mode = 6
+
+[node name="Label20" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 16666.0
+margin_right = 709.0
+margin_bottom = 16691.0
+custom_fonts/font = SubResource( 6 )
+text = "AGUJAS QUIRURGICAS"
+align = 1
+autowrap = true
+
+[node name="Label21" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 16711.0
+margin_right = 709.0
+margin_bottom = 17156.0
+custom_fonts/font = SubResource( 6 )
+text = "Las agujas quirúrgicas son el componente de la hebra de hilo de las suturas quirúrgicas, estasirvecomo guía paraatravesar los tejidos de manera general, ayudando así el paso del hilo. La selección del tipo de punta y la calidad de la aguja son básicos para dar a los tejidos una incisión adecuada, provocando un mínimo de trauma. Las agujas quirúrgicas son elaboradas con acero de alto contenido en carbón. Deben ser fuertes y estériles; Cuanto más profunda es la herida quirúrgica más aguda debe ser la curva de la aguja, hay cinco ángulos de curvatura diferentes, en orden decreciente: 5/8, ½, 3/8, ¼ y aguja recta, la cual se utiliza principalmente en la piel.
+
+*Tipos de agujas quirúrgicas
+
+- Agujas quirúrgicas según su punta:
+Las agujas cortantes se utilizan cuando el tejido es duro o difícil de penetrar, como la piel, el tendón o tejidos resistentes."
+autowrap = true
+
+[node name="TextureRect32" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 17176.0
+margin_right = 709.0
+margin_bottom = 17870.0
+rect_clip_content = true
+texture = ExtResource( 37 )
+stretch_mode = 6
+
+[node name="Label22" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 17890.0
+margin_right = 709.0
+margin_bottom = 18335.0
+custom_fonts/font = SubResource( 6 )
+text = "Las agujas quirúrgicas son el componente de la hebra de hilo de las suturas quirúrgicas, estasirvecomo guía paraatravesar los tejidos de manera general, ayudando así el paso del hilo. La selección del tipo de punta y la calidad de la aguja son básicos para dar a los tejidos una incisión adecuada, provocando un mínimo de trauma. Las agujas quirúrgicas son elaboradas con acero de alto contenido en carbón. Deben ser fuertes y estériles; Cuanto más profunda es la herida quirúrgica más aguda debe ser la curva de la aguja, hay cinco ángulos de curvatura diferentes, en orden decreciente: 5/8, ½, 3/8, ¼ y aguja recta, la cual se utiliza principalmente en la piel.
+
+*Tipos de agujas quirúrgicas
+
+- Agujas quirúrgicas según su punta:
+Las agujas cortantes se utilizan cuando el tejido es duro o difícil de penetrar, como la piel, el tendón o tejidos resistentes."
+autowrap = true
+
+[node name="TextureRect33" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 18355.0
+margin_right = 709.0
+margin_bottom = 18921.0
+rect_clip_content = true
+texture = ExtResource( 38 )
+stretch_mode = 6
+
+[node name="Label23" type="Label" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 18941.0
+margin_right = 709.0
+margin_bottom = 18966.0
+custom_fonts/font = SubResource( 6 )
+text = "Agujas quirúrgicas según su cuerpo:"
+autowrap = true
+
+[node name="TextureRect34" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 18986.0
+margin_right = 709.0
+margin_bottom = 19663.0
+rect_clip_content = true
+texture = ExtResource( 39 )
+stretch_mode = 6
+
+[node name="TextureRect35" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 19683.0
+margin_right = 709.0
+margin_bottom = 20360.0
+rect_clip_content = true
+texture = ExtResource( 40 )
+stretch_mode = 6
+
+[node name="TextureRect36" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 20380.0
+margin_right = 709.0
+margin_bottom = 20807.0
+rect_clip_content = true
+texture = ExtResource( 41 )
+stretch_mode = 6
+
+[node name="TextureRect37" type="TextureRect" parent="info/ScrollContainer/VBoxContainer"]
+margin_top = 20827.0
+margin_right = 709.0
+margin_bottom = 21164.0
+rect_clip_content = true
+texture = ExtResource( 42 )
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="info"]
+anchor_right = 1.0
+margin_left = 18.0
+margin_right = -15.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 7 )
+text = "TODO LO QUE  DEBES SABER SOBRE SUTURAS Y AGUJAS QUIRURGICAS"
+align = 1
+autowrap = true
+
+[node name="cerrarInfo" type="TextureButton" parent="info"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -194.0
+margin_top = -120.0
+margin_right = 194.0
+texture_normal = ExtResource( 43 )
+texture_pressed = ExtResource( 43 )
+texture_hover = ExtResource( 43 )
+texture_disabled = ExtResource( 43 )
+texture_focused = ExtResource( 43 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="info/cerrarInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.5
+margin_top = -60.0
+margin_right = 189.5
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 8 )
+text = "Cerrar"
+align = 1
+valign = 1
+autowrap = true
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_TextureButton2_pressed"]
+[connection signal="pressed" from="info/cerrarInfo" to="." method="_on_cerrarInfo_pressed"]

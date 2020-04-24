@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://fuentes/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://BtnSalir.png" type="Texture" id=2]
@@ -6,166 +6,306 @@
 [ext_resource path="res://Question.png" type="Texture" id=4]
 [ext_resource path="res://ImgPopup.png" type="Texture" id=5]
 [ext_resource path="res://BtnMinigame.png" type="Texture" id=6]
+[ext_resource path="res://sonidos/loop_music.ogg" type="AudioStream" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
+var datosCuriosos = [
+\"Las grapas quirúrgicas, no penetran completamente en la piel, por lo que disminuye el riesgo de infección y de isquémizar el tejido suturado.\", 
+\"El nylon puede ser reemplazado por otra sutura, pero él no reemplaza a otra sutura.\",
+\"Las suturas adhesivas se mantienen el mismo tiempo que una sutura convencional en esa región anatómica.\", 
+\"Si anudamos con un hilo multifilamentoso es suficiente con realizar tres lazadas.\",
+\"Un calibre menor puede concluir en deshidencia, y un calibre mayor del necesario produce una cicatrización con dificultad.\",
+\"La fuerza de tensión de la sutura es la responsable de mantener el tejido en perfecta posición mientras tiene lugar la cicatrización.\",
+\"La sutura ideal es aquella que tiene la misma resistencia del tejido en que es implantada, y la va perdiendo a medida que el tejido aumenta su fortaleza con la maduración de la cicatriz.\"
+]
 const Questions = [
- {
-   \"Pregunta\": \"Cuanto más profunda es la herida…\",
-   \"OpcionA\": \"Mas curva la aguja\",
-   \"OpcionB\": \"Más corta la aguja\",
-   \"OpcionC\": \"Mas recta la aguja\",
-   \"OpcionD\": \"Ninguna de las anteriores\",
-   \"Correcta\": \"Mas curva la aguja\"
- },
- {
-   \"Pregunta\": \"Agulos de curvatura\",
-   \"OpcionA\": \"N° 1 , N°2, N°3, N°4\",
-   \"OpcionB\": \"5/8, recta,1/2, 1/4, 3/8\",
-   \"OpcionC\": \"Recta, semi curva, curva\",
-   \"OpcionD\": \"Todas las anteriores\",
-   \"Correcta\": \"5/8, recta,1/2, 1/4, 3/8\"
- },
- {
-   \"Pregunta\": \"Caracteristica esencial de una aguja quirurgica\",
-   \"OpcionA\": \"Largas y afiladas\",
-   \"OpcionB\": \"Curva y fuerte\",
-   \"OpcionC\": \"Fuertes e inertes\",
-   \"OpcionD\": \"Fuertes y resistentes\",
-   \"Correcta\": \"Fuertes e inertes\"
- },
- {
-   \"Pregunta\": \"Determinantes de una sutura ideal\",
-   \"OpcionA\": \"El tejido a suturar\",
-   \"OpcionB\": \"Tiempo de reabsorcion\",
-   \"OpcionC\": \"Tipo de herida\",
-   \"OpcionD\": \"Tipo de material de la sutura\",
-   \"Correcta\": \"Todas las anteriores\"
- },
- {
-   \"Pregunta\": \"Que datos lleva escrito el paquete de sutura\",
-   \"OpcionA\": \"Tipo, tamaño de la aguja, fechas\",
-   \"OpcionB\": \"Curvatura de agujas\",
-   \"OpcionC\": \"Numero de elementos \",
-   \"OpcionD\": \"Uso de elementos\",
-   \"Correcta\": \"Tipo, tamaño de la aguja, fechas\"
- },
- {
-   \"Pregunta\": \"La funcion de la sutura es\",
-   \"OpcionA\": \"Proteger la herida\",
-   \"OpcionB\": \"Aproximar bordes de la herida\",
-   \"OpcionC\": \"Mejorar aspecto estetico de la cicatriz\",
-   \"OpcionD\": \"Todas las anteriores\",
-   \"Correcta\": \"Todas las anteriores\"
- },
- {
-   \"Pregunta\": \"Las suturas pueden ser de\",
-   \"OpcionA\": \"Hilo,nilon, seda\",
-   \"OpcionB\": \"Hilo, grapas, SteriStrip, Salusplay\",
-   \"OpcionC\": \"Nilon, grapas, seda\",
-   \"OpcionD\": \"Ninguna de las anteriores\",
-   \"Correcta\": \"Hilo, grapas, SteriStrip, Salusplay\"
- },
- {
-   \"Pregunta\": \"Tipos de sutura según su estructura\",
-   \"OpcionA\": \"naturales y sinteticas\",
-   \"OpcionB\": \"filamentosa y multifilamentosa\",
-   \"OpcionC\": \"gruesas y delgada\",
-   \"OpcionD\": \"Traumaticas, atraumaticas\",
-   \"Correcta\": \"Traumaticas, atraumaticas\"
- },
- {
-   \"Pregunta\": \"Tipos de sutura según su origen vegetal\",
-   \"OpcionA\": \"Lino, algodón\",
-   \"OpcionB\": \"algodón y absorvible\",
-   \"OpcionC\": \"seco y humedo\",
-   \"OpcionD\": \"algodón y sales de cobre\",
-   \"Correcta\": \"Lino, algodón\"
- },
- {
-   \"Pregunta\": \"Suturas de origen mineral\",
-   \"OpcionA\": \"Hilo,nilon, seda\",
-   \"OpcionB\": \"curva, y recta\",
-   \"OpcionC\": \"Acero,plata\",
-   \"OpcionD\": \"algodón , cobre y acero\",
-   \"Correcta\": \"Acero,plata\"
- },
- {
-   \"Pregunta\": \"Suturas de origen animal\",
-   \"OpcionA\": \"algodón, plata y acero\",
-   \"OpcionB\": \"Seda, catgut\",
-   \"OpcionC\": \"acero, seda y cargut \",
-   \"OpcionD\": \"algoon, catgut y filamentosa\",
-   \"Correcta\": \"Seda, catcut\"
- },
- {
-   \"Pregunta\": \"Tipos de sutura según el acabado y la manipulacion industrial\",
-   \"OpcionA\": \"curva y recta\",
-   \"OpcionB\": \"tipo e herida\",
-   \"OpcionC\": \"filamentosa, naturales y sinteticas\",
-   \"OpcionD\": \"Monofilamento, Multifilamento\",
-   \"Correcta\": \"Monofilamento, Multifilamento\"
- },
- {
-   \"Pregunta\": \"Suturas de origen sintetico\",
-   \"OpcionA\": \"Poliamides\",
-   \"OpcionB\": \"Polidioxanona, polipropileno\",
-   \"OpcionC\": \"Polietileno, poliesteres\",
-   \"OpcionD\": \"Todas las anteriores\",
-   \"Correcta\": \"Todas las anteriores\"
- },
- {
-   \"Pregunta\": \"Sutura utilizada en las mucosas urinarias\",
-   \"OpcionA\": \"Catgut cromado\",
-   \"OpcionB\": \"polipropileno\",
-   \"OpcionC\": \"seda suelta\",
-   \"OpcionD\": \"naylon trenzado\",
-   \"Correcta\": \"Catgut cromado\"
- },
- {
-   \"Pregunta\": \"Sutura utilizada en implatacion de vulvas cardiacas\",
-   \"OpcionA\": \"vicryl\",
-   \"OpcionB\": \"seda, catgut y vicryl\",
-   \"OpcionC\": \"Polyester\",
-   \"OpcionD\": \"catgut simple\",
-   \"Correcta\": \"Polyester\"
- },
- {
-   \"Pregunta\": \"Sutura ideal utilizada en tejidos blandos\",
-   \"OpcionA\": \"catgut cromado\",
-   \"OpcionB\": \"seda suelta\",
-   \"OpcionC\": \"polipropileno\",
-   \"OpcionD\": \"Vicryl\",
-   \"Correcta\": \"Vicryl\"
- },
- {
-   \"Pregunta\": \"Materia prima del catgut cromico\",
-   \"OpcionA\": \"Intestinos de vaca u oveja con sales de cromo\",
-   \"OpcionB\": \"algodón\",
-   \"OpcionC\": \"gusano de seda\",
-   \"OpcionD\": \"polidioxanona\",
-   \"Correcta\": \"Intestinos de vaca y oveja\"
- },
- {
-   \"Pregunta\": \"Tiempo minimo de absorcion del PDS\",
-   \"OpcionA\": \"15 dias\",
-   \"OpcionB\": \"90 dias\",
-   \"OpcionC\": \"30 dias\",
-   \"OpcionD\": \"120 dias\",
-   \"Correcta\": \"90 dias\"
- },
- {
-   \"Pregunta\": \"Material de sutura mas grande\",
-   \"OpcionA\": \"0/ 5\",
-   \"OpcionB\": \"2\",
-   \"OpcionC\": \"N°5\",
-   \"OpcionD\": \"0\",
-   \"Correcta\": \"N°5\"
- }
+  {
+    \"Pregunta\": \"Cuanto más profunda es la herida…\",
+    \"OpcionA\": \"Mas curvo el hilo\",
+    \"OpcionB\": \"Más corta la aguja\",
+    \"OpcionC\": \"Mas recta la aguja\",
+    \"OpcionD\": \"Ninguna de las anteriores\",
+    \"Correcta\": \"Mas curva la aguja\"
+  },
+  {
+    \"Pregunta\": \"Agulos de curvatura\",
+    \"OpcionA\": \"N° 1 , N°2, N°3, N°4\",
+    \"OpcionB\": \"Recta N°1\",
+    \"OpcionC\": \"Recta, semi curva, curva\",
+    \"OpcionD\": \"Todas las anteriores\",
+    \"Correcta\": \"5/8, recta,1/2, 1/4, 3/8\"
+  },
+  {
+    \"Pregunta\": \"Caracteristica esencial de una aguja quirurgica\",
+    \"OpcionA\": \"Largas y afiladas\",
+    \"OpcionB\": \"Curva y fuerte\",
+    \"OpcionC\": \"Curvas y largas\",
+    \"OpcionD\": \"Fuertes y resistentes\",
+    \"Correcta\": \"Fuertes e inertes\"
+  },
+  {
+    \"Pregunta\": \"Determinantes de una sutura ideal\",
+    \"OpcionA\": \"El tejido a suturar\",
+    \"OpcionB\": \"Tiempo de reabsorcion\",
+    \"OpcionC\": \"Tipo de herida\",
+    \"OpcionD\": \"Ninguna de las anteriores\",
+    \"Correcta\": \"Todas las anteriores\"
+  },
+  {
+    \"Pregunta\": \"Que datos lleva escrito el paquete de sutura\",
+    \"OpcionA\": \"Largo del hilo\",
+    \"OpcionB\": \"Curvatura de agujas\",
+    \"OpcionC\": \"Numero de elementos\",
+    \"OpcionD\": \"Uso de elementos\",
+    \"Correcta\": \"Tipo, tamaño de la aguja, fechas\"
+  },
+  {
+    \"Pregunta\": \"La funcion de la sutura es\",
+    \"OpcionA\": \"Proteger la herida\",
+    \"OpcionB\": \"Aproximar bordes de la herida\",
+    \"OpcionC\": \"Mejorar aspecto estetico de la cicatriz\",
+    \"OpcionD\": \"Ninguna de las anteriores\",
+    \"Correcta\": \"Todas las anteriores\"
+  },
+  {
+    \"Pregunta\": \"Las suturas pueden ser de\",
+    \"OpcionA\": \"Hilo,nilon, seda\",
+    \"OpcionB\": \"Hilo, nilon, seda\",
+    \"OpcionC\": \"Nilon, grapas, seda\",
+    \"OpcionD\": \"Ninguna de las anteriores\",
+    \"Correcta\": \"Hilo, grapas, SteriStrip, Salusplay\"
+  },
+  {
+    \"Pregunta\": \"Tipos de sutura según su estructura\",
+    \"OpcionA\": \"naturales y sinteticas\",
+    \"OpcionB\": \"filamentosa y multifilamentosa\",
+    \"OpcionC\": \"gruesas y delgada\",
+    \"OpcionD\": \"Traumante, atraumante\",
+    \"Correcta\": \"Traumaticas, atraumaticas\"
+  },
+  {
+    \"Pregunta\": \"Tipos de sutura según su origen vegetal\",
+    \"OpcionA\": \"Acero, algodón\",
+    \"OpcionB\": \"algodón y absorvible\",
+    \"OpcionC\": \"seco y humedo\",
+    \"OpcionD\": \"algodón y sales de cobre\",
+    \"Correcta\": \"Lino, algodón\"
+  },
+  {
+    \"Pregunta\": \"Suturas de origen mineral\",
+    \"OpcionA\": \"Hilo,nilon, seda\",
+    \"OpcionB\": \"curva, y recta\",
+    \"OpcionC\": \"Lino, algodón\",
+    \"OpcionD\": \"algodón , cobre y acero\",
+    \"Correcta\": \"Acero,plata\"
+  },
+  {
+    \"Pregunta\": \"Suturas de origen animal\",
+    \"OpcionA\": \"algodón, plata y acero\",
+    \"OpcionB\": \"Hilo, nilon, seda\",
+    \"OpcionC\": \"acero, seda y cargut\",
+    \"OpcionD\": \"algoon, catgut y filamentosa\",
+    \"Correcta\": \"Seda, catcut\"
+  },
+  {
+    \"Pregunta\": \"Tipos de sutura según el acabado y la manipulacion industrial\",
+    \"OpcionA\": \"curva y recta\",
+    \"OpcionB\": \"tipo e herida\",
+    \"OpcionC\": \"filamentosa, naturales y sinteticas\",
+    \"OpcionD\": \"Todas las anteriores\",
+    \"Correcta\": \"Monofilamento, Multifilamento\"
+  },
+  {
+    \"Pregunta\": \"Suturas de origen sintetico\",
+    \"OpcionA\": \"Poliamides\",
+    \"OpcionB\": \"Polidioxanona, polipropileno\",
+    \"OpcionC\": \"Polietileno, poliesteres\",
+    \"OpcionD\": \"Ninguna de las anteriores\",
+    \"Correcta\": \"Todas las anteriores\"
+  },
+  {
+    \"Pregunta\": \"Sutura utilizada en las mucosas urinarias\",
+    \"OpcionA\": \"Todas las anteriores\",
+    \"OpcionB\": \"polipropileno\",
+    \"OpcionC\": \"seda suelta\",
+    \"OpcionD\": \"naylon trenzado\",
+    \"Correcta\": \"Catgut cromado\"
+  },
+  {
+    \"Pregunta\": \"Sutura utilizada en implatacion de vulvas cardiacas\",
+    \"OpcionA\": \"vicryl\",
+    \"OpcionB\": \"seda, catgut y vicryl\",
+    \"OpcionC\": \"Polyester\",
+    \"OpcionD\": \"catgut simple\",
+    \"Correcta\": \"Polyester\"
+  },
+  {
+    \"Pregunta\": \"Sutura ideal utilizada en tejidos blandos\",
+    \"OpcionA\": \"catgut cromado\",
+    \"OpcionB\": \"seda suelta\",
+    \"OpcionC\": \"polipropileno\",
+    \"OpcionD\": \"Acero\",
+    \"Correcta\": \"Vicryl\"
+  },
+  {
+    \"Pregunta\": \"Materia prima del catgut cromico\",
+    \"OpcionA\": \"Intestinos de vaca u oveja con sales de cromo\",
+    \"OpcionB\": \"algodón\",
+    \"OpcionC\": \"gusano de seda\",
+    \"OpcionD\": \"polidioxanona\",
+    \"Correcta\": \"Intestinos de vaca y oveja\"
+  },
+  {
+    \"Pregunta\": \"Tiempo minimo de absorcion del PDS\",
+    \"OpcionA\": \"15 dias\",
+    \"OpcionB\": \"190 dias\",
+    \"OpcionC\": \"30 dias\",
+    \"OpcionD\": \"120 dias\",
+    \"Correcta\": \"90 dias\"
+  },
+  {
+    \"Pregunta\": \"Material de sutura mas grande\",
+    \"OpcionA\": \"0/ 5\",
+    \"OpcionB\": \"2\",
+    \"OpcionC\": \"N°10\",
+    \"OpcionD\": \"0\",
+    \"Correcta\": \"N°5\"
+  },
+  {
+    \"Pregunta\": \"Son suturas que previenen la colonización bacteriana por su poder bactericida y bacteriostático, que minimizan el riesgo de infección\",
+    \"OpcionA\": \"Sutura absorbible\",
+    \"OpcionB\": \"Sutura natural\",
+    \"OpcionC\": \"Sutura de origen animal\",
+    \"OpcionD\": \"Sutura de plata\",
+    \"Correcta\": \"Sutura plus\"
+  },
+  {
+    \"Pregunta\": \"Las suturas plus (antibacteriales) viene en la presentación de\",
+    \"OpcionA\": \"Catgut cromado, PDS II, nylon\",
+    \"OpcionB\": \"Catgut monocromado, PDS II, nylon\",
+    \"OpcionC\": \"Vicryl, seda, acero quirúrgico\",
+    \"OpcionD\": \"Acero quirúrgico, seda, catgut cromado, vicryl\",
+    \"Correcta\": \"Vicryl, PDS II, monocryl\"
+  },
+  {
+    \"Pregunta\": \"Las suturas NO absorbibles permanecen en el cuerpo a través del proceso de\",
+    \"OpcionA\": \"Hidrolisis\",
+    \"OpcionB\": \"Acción enzimática\",
+    \"OpcionC\": \"Ninguna de las anteriores\",
+    \"OpcionD\": \"Todas las anteriores\",
+    \"Correcta\": \"Encapsulado\"
+  },
+  {
+    \"Pregunta\": \"El tiempo de absorción de la sutura PDS II es\",
+    \"OpcionA\": \"180 días\",
+    \"OpcionB\": \"220 – 230 días\",
+    \"OpcionC\": \"90 días\",
+    \"OpcionD\": \"5 dias\",
+    \"Correcta\": \"182 – 183 días\"
+  },
+  {
+    \"Pregunta\": \"Calibre en los que se encuentra la sutura Catgut Cromado con aguja BP1\",
+    \"OpcionA\": \"2\",
+    \"OpcionB\": \"1, 2/0\",
+    \"OpcionC\": \"3/0,0\",
+    \"OpcionD\": \"1\",
+    \"Correcta\": \"0\"
+  },
+  {
+    \"Pregunta\": \"Calibres de la sutura PDS II con aguja CT1\",
+    \"OpcionA\": \"6/0, 1, 0\",
+    \"OpcionB\": \"5/0, 3/0, 1, 4/0\",
+    \"OpcionC\": \"2/0, 3/0\",
+    \"OpcionD\": \"0\",
+    \"Correcta\": \"3/0, 2/0, 0, 1\"
+  },
+  {
+    \"Pregunta\": \"Calibres de la sutura Vicryl con aguja CT1\",
+    \"OpcionA\": \"4/0, 1, 5/0, 2/0\",
+    \"OpcionB\": \"3/0, 0, 6/0, 10/0\",
+    \"OpcionC\": \"2, 2/0, 1, 5/0\",
+    \"OpcionD\": \"1, 1/2, 3/2\",
+    \"Correcta\": \"3/0, 2/0, 0, 1\"
+  },
+  {
+    \"Pregunta\": \"Los tejidos blandos son afrontados con sutura de tipo\",
+    \"OpcionA\": \"No absorbible\",
+    \"OpcionB\": \"Origen animal\",
+    \"OpcionC\": \"Sintética\",
+    \"OpcionD\": \"Origen vegetal\",
+    \"Correcta\": \"Absorbible\"
+  },
+  {
+    \"Pregunta\": \"La sutura Monocryl, también viene en presentación\",
+    \"OpcionA\": \"3/0 PC\",
+    \"OpcionB\": \"5/0 CT1\",
+    \"OpcionC\": \"1 Ks\",
+    \"OpcionD\": \"3Ks\",
+    \"Correcta\": \"Sutupak\"
+  },
+  {
+    \"Pregunta\": \"El Catgut Cromado también es utilizado en cirugía ginecológica para\",
+    \"OpcionA\": \"Ligadura de trompas\",
+    \"OpcionB\": \"Histerorrafia\",
+    \"OpcionC\": \"Trasfixión de ligamentos\",
+    \"OpcionD\": \"Cesarea\",
+    \"Correcta\": \"Todas las anteriores\"
+  },
+  {
+    \"Pregunta\": \"Una sutura con aguja punta redonda ½  circulo de 17mm es de calibre\",
+    \"OpcionA\": \"Bv1\",
+    \"OpcionB\": \"CT3\",
+    \"OpcionC\": \"Sc- 26\",
+    \"OpcionD\": \"B3\",
+    \"Correcta\": \"2 Rb1\"
+  },
+  {
+    \"Pregunta\": \"Las agujas TG-140-6  Y TG-140-8 son utilizadas en procedimientos\",
+    \"OpcionA\": \"Cirugía  General\",
+    \"OpcionB\": \"Pediatría\",
+    \"OpcionC\": \"Ortopédicos\",
+    \"OpcionD\": \"Todas las anteriores\",
+    \"Correcta\": \"Oftalmológicas\"
+  },
+  {
+    \"Pregunta\": \"Son suturas ideales para usar en el hígado\",
+    \"OpcionA\": \"Vicryl – Monocryl 0 CT1\",
+    \"OpcionB\": \"Caprofil – Catgut Cromado 1 Sc\",
+    \"OpcionC\": \"Vicryl – Catgut Cromado 2/0 Bp1\",
+    \"OpcionD\": \"Ninguna de las anteriores\",
+    \"Correcta\": \"Catgut Cromado – Vicryl 0 Bp1\"
+  },
+  {
+    \"Pregunta\": \"Son suturas absorbibles sintéticas\",
+    \"OpcionA\": \"Seda, Prolene, Catgut Cromado\",
+    \"OpcionB\": \"Vicryl, Nylon, PDS II, Ethibond\",
+    \"OpcionC\": \"Catgut Simple, Monocryl, Caprofil, Seda\",
+    \"OpcionD\": \"Todas las anteriores\",
+    \"Correcta\": \"Caprofil, PDS II, Monocryl, Vicryl\"
+  },
+  {
+    \"Pregunta\": \"La sutura ideal debe ser\",
+    \"OpcionA\": \"Fácil manejo y fuerza tensil\",
+    \"OpcionB\": \"Seguridad en los nudos\",
+    \"OpcionC\": \"Mínima reacción tisular\",
+    \"OpcionD\": \"Ninguna de las anteriores\",
+    \"Correcta\": \"Todas las anteriores\"
+  }
 ]
 var Respondidas = []
 var PreguntaActual;
+var datoMostrado = false
 func _ready():
+	if(!datoMostrado):
+		var rng = RandomNumberGenerator.new()
+		var datoCuriosoShufled = shuffleList(datosCuriosos)
+		$DatoCurioso/texto.text = datoCuriosoShufled[rng.randi()%datoCuriosoShufled.size()]
+		$DatoCurioso.popup()
+	if(datoMostrado):
+		$Tiempo/Timer.start()
+	else:
+		$Tiempo/Timer.stop()
 	_loadPregunta()
 	pass
 
@@ -209,7 +349,8 @@ func shuffleList(list):
 
 func _Probar(Opcion):
 	if(Opcion == PreguntaActual.Correcta):
-		Respondidas.append(Opcion)
+		Respondidas.append(Opcion);
+		$Tiempo.DisplayValue = 60
 		_ready()
 	else:
 		$GameOver.popup()
@@ -234,11 +375,17 @@ func _Game_Over():
 
 func _on_Salir_pressed():
 	get_tree().change_scene(\"res://escenas/MinigameUno.tscn\")
+
+
+func _on_cerrarCuriosidad_pressed():
+	datoMostrado = true;
+	$Tiempo/Timer.start()
+	$DatoCurioso.hide();
 "
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.0118343, 0.995536 )
-colors = PoolColorArray( 0.31543, 0, 0.53125, 1, 0.186218, 0.321668, 0.882813, 1 )
+colors = PoolColorArray( 0.313726, 0, 0.529412, 1, 0.184314, 0.321569, 0.882353, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
@@ -299,6 +446,24 @@ font_data = ExtResource( 1 )
 size = 45
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=14]
+size = 55
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 80
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 37
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
 [node name="Node" type="Node"]
 script = SubResource( 1 )
 
@@ -335,7 +500,6 @@ script = SubResource( 6 )
 [node name="Timer" type="Timer" parent="Tiempo"]
 
 [node name="Salir" type="TextureButton" parent="."]
-editor/display_folded = true
 margin_right = 170.0
 margin_bottom = 100.0
 texture_normal = ExtResource( 2 )
@@ -492,6 +656,7 @@ valign = 1
 autowrap = true
 
 [node name="GameOver" type="Popup" parent="."]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -562,6 +727,7 @@ valign = 1
 autowrap = true
 
 [node name="Win" type="Popup" parent="."]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -630,6 +796,79 @@ text = "Gracias por jugar"
 align = 1
 valign = 1
 autowrap = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 1.63
+autoplay = true
+
+[node name="DatoCurioso" type="Popup" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -417.0
+margin_right = 360.0
+margin_bottom = 337.0
+
+[node name="TextureRect" type="TextureRect" parent="DatoCurioso"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -316.0
+margin_right = 316.0
+margin_bottom = 681.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="cerrarCuriosidad" type="TextureButton" parent="DatoCurioso"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -180.0
+margin_right = 200.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="DatoCurioso/cerrarCuriosidad"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 14 )
+text = "Continuar"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label" type="Label" parent="DatoCurioso"]
+anchor_right = 1.0
+margin_bottom = 272.0
+custom_fonts/font = SubResource( 15 )
+text = "Dato curioso"
+align = 1
+valign = 1
+
+[node name="texto" type="Label" parent="DatoCurioso"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -287.0
+margin_top = -129.0
+margin_right = 287.0
+margin_bottom = 211.0
+custom_fonts/font = SubResource( 16 )
+text = "la sutura ideal es aquella que tiene la misma resistencia del tejido en que es implantada, y la va perdiendo a medida que el tejido aumenta su fortaleza con la maduración de la cicatriz."
+align = 1
+autowrap = true
 [connection signal="timeout" from="Tiempo/Timer" to="Tiempo" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
 [connection signal="pressed" from="CenterContainer/Grilla/OpcionA" to="." method="_on_OpcionA_pressed"]
@@ -638,3 +877,4 @@ autowrap = true
 [connection signal="pressed" from="CenterContainer/Grilla/OpcionD" to="." method="_on_OpcionD_pressed"]
 [connection signal="pressed" from="GameOver/Salir" to="." method="_on_Salir_pressed"]
 [connection signal="pressed" from="Win/Salir" to="." method="_on_Salir_pressed"]
+[connection signal="pressed" from="DatoCurioso/cerrarCuriosidad" to="." method="_on_cerrarCuriosidad_pressed"]
